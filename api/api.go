@@ -50,7 +50,7 @@ func NewAPI(
 		// config.AddAllowHeaders("Authorization")
 		router.Use(cors.New(cors.Config{
 			AllowOrigins:   []string{"*"},
-         AllowMethods:   []string{"GET", "POST"},
+         AllowMethods:   []string{"GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"},
          AllowHeaders:   []string{"Authorization"},
          ExposeHeaders:  []string{"Content-Length"},
 			AllowCredentials: true,
