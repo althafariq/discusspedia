@@ -14,9 +14,9 @@ import (
 	"sync"
 	"time"
 
+	"github.com/althafariq/discusspedia/repository"
+	"github.com/althafariq/discusspedia/service"
 	"github.com/gin-gonic/gin"
-	"github.com/pkl-min-1/discusspedia/backend/repository"
-	"github.com/pkl-min-1/discusspedia/backend/service"
 )
 
 type CreatePostRequest struct {
