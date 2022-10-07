@@ -32,23 +32,23 @@ func NewAPI(
 	categoryRepo repository.CategoryRepository,
 	questionnaireRepo repository.QuestionnaireRepository,
 ) API {
-	router := gin.Default()
-	api := API{
-		router:            router,
-		commentRepo:       commentRepo,
-		likeRepo:          likeRepo,
-		notifRepo:         notifRepo,
-		postRepo:          postRepo,
-		userRepo:          userRepo,
-		categoryRepo:      categoryRepo,
-		questionnaireRepo: questionnaireRepo,
-	}
-	config := cors.DefaultConfig()
-	// config.AllowOrigins = []string{"http://localhost:3000"}
-	config.AllowAllOrigins = true
-	config.AllowCredentials = true
-	config.AddAllowHeaders("Authorization")
-	router.Use(cors.New(config))
+		router := gin.Default()
+		api := API{
+			router:            router,
+			commentRepo:       commentRepo,
+			likeRepo:          likeRepo,
+			notifRepo:         notifRepo,
+			postRepo:          postRepo,
+			userRepo:          userRepo,
+			categoryRepo:      categoryRepo,
+			questionnaireRepo: questionnaireRepo,
+		}
+		config := cors.DefaultConfig()
+		config.AllowOrigins = []string{"*"}
+		config.AllowAllOrigins = true
+		config.AllowCredentials = true
+		config.AddAllowHeaders("Authorization")
+		router.Use(cors.New(config))
 
 	// Untuk validasi request dengan mengembalikan nama dari tag json jika ada
 	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
