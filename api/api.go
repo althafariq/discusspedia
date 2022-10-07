@@ -44,7 +44,7 @@ func NewAPI(
 		questionnaireRepo: questionnaireRepo,
 	}
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"http://localhost:3000"}
+	// config.AllowOrigins = []string{"http://localhost:3000"}
 	config.AllowAllOrigins = true
 	config.AllowCredentials = true
 	config.AddAllowHeaders("Authorization")
