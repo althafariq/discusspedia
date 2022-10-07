@@ -44,7 +44,7 @@ func NewAPI(
 			questionnaireRepo: questionnaireRepo,
 		}
 		config := cors.DefaultConfig()
-		config.AllowOrigins = []string{"*"}
+		// config.AllowOrigins = []string{"*"}
 		config.AllowAllOrigins = true
 		config.AllowCredentials = true
 		config.AddAllowHeaders("Authorization")
