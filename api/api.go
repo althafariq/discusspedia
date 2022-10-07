@@ -73,10 +73,10 @@ func NewAPI(
 	router.POST("/api/register", api.register)
 	router.GET("/api/category", api.GetAllCategories)
 
-	profileRouter := router.Group("/api/profile", AuthMiddleware())
+	profileRouter := router.Group("/api/profile/", AuthMiddleware())
 	{
-		profileRouter.GET("/get", api.getProfile)
-		profileRouter.PATCH("/patch", api.updateProfile)
+		profileRouter.GET("/", api.getProfile)
+		profileRouter.PATCH("/", api.updateProfile)
 		profileRouter.PUT("/avatar", api.changeAvatar)
 	}
 
