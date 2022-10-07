@@ -43,12 +43,18 @@ func NewAPI(
 			categoryRepo:      categoryRepo,
 			questionnaireRepo: questionnaireRepo,
 		}
-		config := cors.DefaultConfig()
-		// config.AllowOrigins = []string{"*"}
-		config.AllowAllOrigins = true
-		config.AllowCredentials = true
-		config.AddAllowHeaders("Authorization")
-		router.Use(cors.New(config))
+		// config := cors.DefaultConfig()
+		// // config.AllowOrigins = []string{"*"}
+		// config.AllowAllOrigins = true
+		// config.AllowCredentials = true
+		// config.AddAllowHeaders("Authorization")
+		router.Use(cors.New(cors.Config{
+			AllowOrigins:   []string{"*"},
+         AllowMethods:   []string{"GET", "POST"},
+         AllowHeaders:   []string{"Authorization"},
+         ExposeHeaders:  []string{"Content-Length"},
+			AllowCredentials: true,
+		}))
 
 	// Untuk validasi request dengan mengembalikan nama dari tag json jika ada
 	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
