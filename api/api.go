@@ -45,7 +45,7 @@ func NewAPI(
 	}
 	config := cors.DefaultConfig()
 	config.AllowOrigins = []string{"http://localhost:3000"}
-	// config.AllowAllOrigins = true
+	config.AllowAllOrigins = true
 	config.AllowCredentials = true
 	config.AddAllowHeaders("Authorization")
 	router.Use(cors.New(config))
